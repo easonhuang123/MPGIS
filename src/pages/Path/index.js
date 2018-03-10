@@ -11,18 +11,18 @@ class Path extends Component {
                 ['3', '4']
             ]
         }
-        this.choosennode = this.choosennode.bind(this)
+        this.choosenode = this.choosenode.bind(this)
     }
 
-    choosennode (line, node) {
-        console.log(this.state.nodelist[line][node])
+    choosenode (node) {
+        console.log(node)
     }
 
     render () {
         return (
             <div className='map__container'>
                 <StationList nodelist={this.state.nodelist}
-                             choosennode={this.choosennode}/>
+                             choosenode={this.choosenode}/>
             </div>
         )
     }

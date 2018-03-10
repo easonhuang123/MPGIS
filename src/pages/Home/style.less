@@ -1,16 +1,13 @@
 @import url('../../styles/color.less');
 
 .home__bulletin{
-    background-color: @color2;
-    height: .6rem;
-    line-height: .6rem;
-    p{
-        vertical-align: middle;
-        overflow: hidden;
-        white-space: nowrap;
-        font-size: .28rem;
-        color: #fff;
-    }
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: .28rem;
+    padding: .12rem 0;
+    background-color: @color5;
+    color: @color1;
 }
 
 .home__swiper{
@@ -20,13 +17,13 @@
         text-align: center;
         height: 3.5rem;
         line-height: 3.5rem;
-        color: #fff;
+        color: @grey1;
     }
     &__slide1{
-        background-color: @color5;
+        background-color: @grey2;
     }
     &__slide2{
-        background-color: @color4;
+        background-color: @color2;
     }
     &__slide3{
         background-color: @color3;
@@ -34,33 +31,34 @@
 }
 
 .home__location{
-    margin: .24rem 0;
+    padding: .18rem 0 .24rem;
     font-size: .28rem;
     text-align: center;
     &__img{
-        width: .64rem;
-        height: .64rem;
+        width: .5rem;
+        height: .5rem;
     }
     &__des{
-        font-size: .56rem;
+        font-size: .32rem;
+        font-weight: 600;
     }
 }
 
 .home__content{
-    margin: .36rem .24rem;
     display: flex;
     flex-wrap: wrap;
-    font-size: .28rem;
+    font-size: .24rem;
     text-align: center;
     &__box{
-        flex-basis: 33%;
-        padding: .2rem;
+        border: .01rem @grey1 solid;
+        flex-basis: 33.3333%;
+        padding: .3rem .4rem;
     }
     &__img{
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: .4rem;
-        line-height: 1.5rem;
+        width: .8rem;
+        height: .8rem;
+        border-radius: .3rem;
+        line-height: .8rem;
         margin: .1rem auto;
         img{
             width: 60%;
@@ -76,10 +74,10 @@
         background-color: @red;
     }
     &__path{
-        background-color: @volcano;
+        background-color: @orange;
     }
     &__arrive{
-        background-color: @orange;
+        background-color: @yellow;
     }
     &__begin{
         background-color: @yellow-green;
@@ -88,6 +86,6 @@
         background-color: @blue;
     }
     &__info{
-        background-color: @pink;
+        background-color: @cyan;
     }
 }

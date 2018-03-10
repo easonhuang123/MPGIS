@@ -42,16 +42,16 @@ class StationList extends Component{
     }
 
     choosenode (i, e) {
-        this.props.choosennode(this.state.choosen, i)
+        this.props.choosenode(i)
     }
 
     render () {
         return (
             <div className='station'>
-                <ul className='station__line'>
+                <ul className='station__line station__box'>
                     {this.state.lineitems}
                 </ul>
-                <ul className='station__node'>
+                <ul className='station__node station__box'>
                     {this.state.nodeitems[this.state.choosen]}
                 </ul>
             </div>
