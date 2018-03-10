@@ -1,0 +1,93 @@
+@import url('../../styles/color.less');
+
+.home__bulletin{
+    background-color: @color2;
+    height: .6rem;
+    line-height: .6rem;
+    p{
+        vertical-align: middle;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: .28rem;
+        color: #fff;
+    }
+}
+
+.home__swiper{
+    height: 3.5rem;
+    &__slide{
+        font-size: .28rem;
+        text-align: center;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        color: #fff;
+    }
+    &__slide1{
+        background-color: @color5;
+    }
+    &__slide2{
+        background-color: @color4;
+    }
+    &__slide3{
+        background-color: @color3;
+    }
+}
+
+.home__location{
+    margin: .24rem 0;
+    font-size: .28rem;
+    text-align: center;
+    &__img{
+        width: .64rem;
+        height: .64rem;
+    }
+    &__des{
+        font-size: .56rem;
+    }
+}
+
+.home__content{
+    margin: .36rem .24rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .28rem;
+    text-align: center;
+    &__box{
+        flex-basis: 33%;
+        padding: .2rem;
+    }
+    &__img{
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: .4rem;
+        line-height: 1.5rem;
+        margin: .1rem auto;
+        img{
+            width: 60%;
+            height: 60%;
+            vertical-align: middle;
+        }
+    }
+    &__title{
+        text-decoration: none;
+        color: #000;
+    }
+    &__map{
+        background-color: @red;
+    }
+    &__path{
+        background-color: @volcano;
+    }
+    &__arrive{
+        background-color: @orange;
+    }
+    &__begin{
+        background-color: @yellow-green;
+    }
+    &__around{
+        background-color: @blue;
+    }
+    &__info{
+        background-color: @pink;
+    }
+}

@@ -1,0 +1,88 @@
+.home__bulletin {
+  background-color: #1F8956;
+  height: .6rem;
+  line-height: .6rem;
+}
+.home__bulletin p {
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: .28rem;
+  color: #fff;
+}
+.home__swiper {
+  height: 3.5rem;
+}
+.home__swiper__slide {
+  font-size: .28rem;
+  text-align: center;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  color: #fff;
+}
+.home__swiper__slide1 {
+  background-color: #A1ECC8;
+}
+.home__swiper__slide2 {
+  background-color: #59ECA6;
+}
+.home__swiper__slide3 {
+  background-color: #00B25C;
+}
+.home__location {
+  margin: .24rem 0;
+  font-size: .28rem;
+  text-align: center;
+}
+.home__location__img {
+  width: .64rem;
+  height: .64rem;
+}
+.home__location__des {
+  font-size: .56rem;
+}
+.home__content {
+  margin: .36rem .24rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: .28rem;
+  text-align: center;
+}
+.home__content__box {
+  flex-basis: 33%;
+  padding: .2rem;
+}
+.home__content__img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: .4rem;
+  line-height: 1.5rem;
+  margin: .1rem auto;
+}
+.home__content__img img {
+  width: 60%;
+  height: 60%;
+  vertical-align: middle;
+}
+.home__content__title {
+  text-decoration: none;
+  color: #000;
+}
+.home__content__map {
+  background-color: #f5222d;
+}
+.home__content__path {
+  background-color: #fa541c;
+}
+.home__content__arrive {
+  background-color: #fa8c16;
+}
+.home__content__begin {
+  background-color: #a0d911;
+}
+.home__content__around {
+  background-color: #1890ff;
+}
+.home__content__info {
+  background-color: #eb2f96;
+}
