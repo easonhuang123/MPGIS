@@ -1,13 +1,29 @@
+@import url('../../styles/color.less');
+
 .station{
     position: fixed;
     left: 0;
     height: 100%;
     width: 70%;
     font-size: 0;
+    overflow: scroll;
     &__box{
+        float: left;
         display: inline-block;
-        height: 100%;
         width: 50%;
-        font-size: .32rem;
+        font-size: .24rem;
+        li{
+            padding: .24rem;
+            border-bottom: @grey1 solid .02rem;
+        }
+    }
+    &__title{
+        background-color: @color3;
+        color: #fff;
+        padding: .1rem .24rem !important;
+    }
+    &__node{
+        border-right: @grey1 solid .02rem;
+        border-left: @grey1 solid .02rem;
     }
 }

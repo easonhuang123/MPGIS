@@ -49,9 +49,11 @@ class StationList extends Component{
         return (
             <div className='station'>
                 <ul className='station__line station__box'>
+                    <li className='station__title'>地铁线</li>
                     {this.state.lineitems}
                 </ul>
                 <ul className='station__node station__box'>
+                    <li className='station__title'>站点</li>
                     {this.state.nodeitems[this.state.choosen]}
                 </ul>
             </div>
