@@ -1,18 +1,24 @@
 .station {
   position: fixed;
   left: 0;
+  top: 0;
   height: 100%;
-  width: 70%;
+  width: 100%;
   font-size: 0;
-  overflow: scroll;
+  background-color: rgba(255, 255, 255, 0);
 }
 .station__box {
-  float: left;
+  background-color: #fff;
   display: inline-block;
-  width: 50%;
+  width: 30%;
+  height: 100%;
   font-size: .24rem;
+  overflow: scroll;
 }
-.station__box li {
+.station__box ul {
+  width: 100%;
+}
+.station__box ul li {
   padding: .24rem;
   border-bottom: #f5f5f5 solid 0.02rem;
 }
@@ -21,7 +27,18 @@
   color: #fff;
   padding: .1rem .24rem !important;
 }
+.station__line {
+  background-color: #f5f5f5;
+}
+.station__line .active {
+  background-color: #fff;
+}
 .station__node {
   border-right: #f5f5f5 solid 0.02rem;
   border-left: #f5f5f5 solid 0.02rem;
+}
+.station__mask {
+  display: inline-block;
+  width: 40%;
+  height: 100%;
 }

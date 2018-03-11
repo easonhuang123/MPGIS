@@ -3,18 +3,24 @@
 .station{
     position: fixed;
     left: 0;
+    top: 0;
     height: 100%;
-    width: 70%;
+    width: 100%;
     font-size: 0;
-    overflow: scroll;
+    background-color: rgba(255,255,255,0);
     &__box{
-        float: left;
+        background-color: #fff;
         display: inline-block;
-        width: 50%;
+        width: 30%;
+        height: 100%;
         font-size: .24rem;
-        li{
-            padding: .24rem;
-            border-bottom: @grey1 solid .02rem;
+        overflow: scroll;
+        ul{
+            width: 100%;
+            li{
+                padding: .24rem;
+                border-bottom: @grey1 solid .02rem;
+            }
         }
     }
     &__title{
@@ -22,8 +28,19 @@
         color: #fff;
         padding: .1rem .24rem !important;
     }
+    &__line{
+        background-color: @grey1;
+        .active{
+            background-color: #fff;
+        }
+    }
     &__node{
         border-right: @grey1 solid .02rem;
         border-left: @grey1 solid .02rem;
+    }
+    &__mask{
+        display: inline-block;
+        width: 40%;
+        height: 100%;
     }
 }

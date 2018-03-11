@@ -1,43 +1,24 @@
 import React, { Component } from 'react'
+import classNames from 'classnames'
 import './style.less'
+import Transition from 'react-transition-group/Transition'
 
 class StationList extends Component{
     constructor (props) {
         super(props)
         this.state = {
-            lineitems: [],
-            nodeitems: [],
             choosen: 0
         }
-        this.init = this.init.bind(this)
+
         this.choosenode = this.choosenode.bind(this)
         this.chooseline = this.chooseline.bind(this)
     }
 
-    componentDidMount () {
-        this.init()
-    }
-
-    init () {
-        let line = []
-        let node = []
-
-        line = this.props.nodelist.map((item, index) => {
-            node[index] = item.map(i => 
-                <li key={i} onClick={(e) => this.choosenode(i, e)}>{i}</li>
-            )
-            return <li key={index} onClick={(e) => this.chooseline(index, e)}>{index + 1}号线</li>
-        })
-
-        this.setState((prevState, props) => ({
-            lineitems: line,
-            nodeitems: node
-        }))
-    }
-
     chooseline (i, e) {
-        this.setState({
-            choosen: i
+        this.setState((preState, props) => {
+            return ({
+                choosen: i
+            })
         })
     }
 
@@ -46,16 +27,38 @@ class StationList extends Component{
     }
 
     render () {
+        let nodeitems = []
+
+        let lineitems = this.props.nodelist.map((item, index) => {
+            nodeitems[index] = item.map(i => 
+                <li key={i} onClick={(e) => this.choosenode(i, e)}>{i}</li>
+            )
+            return (
+                <li key={index}
+                    onClick={(e) => this.chooseline(index, e)}
+                    className={classNames({
+                        'active': this.state.choosen === index
+                    })}>
+                    {index + 1}号线
+                </li>
+            )
+        })
+
         return (
             <div className='station'>
-                <ul className='station__line station__box'>
-                    <li className='station__title'>地铁线</li>
-                    {this.state.lineitems}
-                </ul>
-                <ul className='station__node station__box'>
-                    <li className='station__title'>站点</li>
-                    {this.state.nodeitems[this.state.choosen]}
-                </ul>
+                <div className='station__box'>
+                    <ul className='station__line'>
+                        <li className='station__title'>地铁线</li>
+                        {lineitems}
+                    </ul>
+                </div>
+                <div className='station__box'>
+                    <ul className='station__node'>
+                        <li className='station__title'>站点</li>
+                        {nodeitems[this.state.choosen]}
+                    </ul>
+                </div>
+                <div className='station__mask'  onClick={(e) => this.choosenode('', e)}></div>
             </div>
         )
     }
