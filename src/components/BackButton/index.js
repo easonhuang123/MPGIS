@@ -10,7 +10,6 @@ class BackButton extends Component{
     }
 
     gotoBack () {
-        console.log(this)
         this.props.history.goBack()
     }
 

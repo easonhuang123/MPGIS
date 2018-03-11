@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './style.less'
 import StationList from '../../components/StationList'
 import StationSelect from './station-select'
+import Recommand from './recommand'
+
 class Path extends Component {
     constructor(props) {
         super(props)
@@ -49,8 +51,10 @@ class Path extends Component {
 
     render () {
         return (
-            <div>
+            <div className='path'>
                 <StationSelect showlist={this.showlist} begin={this.state.begin} end={this.state.end}/>
+                <Recommand />
+
                 {!!this.state.show &&
                     <StationList nodelist={this.state.nodelist}
                                  choosenode={this.choosenode}/>
