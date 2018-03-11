@@ -8,7 +8,7 @@ import {
 import Home from './pages/Home'
 import Mapp from './pages/Map'
 import Path from './pages/Path'
-// import Arrive from './pages/Arrive'
+import Arrive from './pages/Arrive'
 // import BeginEnd from './pages/BeginEnd'
 // import Around from './pages/Around'
 // import Info from './pages/Info'
@@ -19,7 +19,8 @@ const BasicExample = () => (
 			<Switch>
 				<Route exact path="/" component={Home}/>
 				<Route path="/map" component={Mapp}/>
-				<Route exact path="/path" component={Path}/>
+				<Route path="/path" component={Path}/>
+				<Route path="/arrive" component={Arrive}/>
 				{/* <Route exact path="/beginEnd" component={BeginEnd}/>
 				<Route exact path="/around" component={Around}/>
 				<Route exact path="/info" component={Info}/> */}

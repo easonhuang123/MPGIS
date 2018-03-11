@@ -1,0 +1,33 @@
+@import url('../../styles/color.less');
+
+.arrive__select{
+    position: fixed;
+    top: 1rem;
+    width: 100%;
+    height: 2rem;
+    background-color: @blue;
+    color: #fff;
+    font-size: .55rem;
+    &__body{
+        position: absolute;
+        border: #fff .02rem solid;
+        border-radius: .2rem;
+        width: 90%;
+        height: 1rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: .1rem .2rem;
+        img{
+            display: inline-block;
+            width: .65rem;
+            height: .65rem;
+            margin-top: -.1rem;
+            vertical-align:middle;
+        }
+        &__text{
+            display: inline-block;
+            padding-left: .2rem;
+        }
+    }
+}

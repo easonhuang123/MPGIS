@@ -35,7 +35,7 @@ class ContentBox extends Component{
                         <p className='home__content__title'>路线规划</p>
                     </div>
                     <div className='home__content__box'>
-                        <Link to='/map'>
+                        <Link to='/arrive'>
                             <div className="home__content__img home__content__arrive">
                                 <img src={arriveUrl}/>
                             </div>
