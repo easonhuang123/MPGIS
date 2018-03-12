@@ -3,6 +3,7 @@ import './style.less'
 import HeaderBar from '../../components/HeaderBar'
 import StationList from '../../components/StationList'
 import StationSelector from '../../components/StationSelector'
+import Card from '../../components/Card'
 
 class Arrive extends Component {
     constructor(props) {
@@ -38,7 +39,18 @@ class Arrive extends Component {
             <div className='arrive'>
                 <HeaderBar title='到站时间查询'/>
                 <StationSelector station={this.state.node} showlist={this.showlist}/>
-            
+                <div className='arrive__list'>
+                    <Card title='开往机场东方向列车' type='right'>
+                        下一班列车到达时间：5min
+                        <br/>
+                        下下一班列车到达时间：12min
+                    </Card>
+                    <Card title='开往罗湖方向列车' type='left'>
+                        下一班列车到达时间：1min
+                        <br/>
+                        下下一班列车到达时间：7min
+                    </Card>
+                </div>
                 {!!this.state.show &&
                     <StationList nodelist={this.state.nodelist}
                                 choosenode={this.choosenode}/>

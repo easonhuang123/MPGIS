@@ -1,4 +1,4 @@
-.arrive__select {
+.station__select {
   position: fixed;
   top: 1rem;
   width: 100%;
@@ -7,7 +7,7 @@
   color: #fff;
   font-size: .55rem;
 }
-.arrive__select__body {
+.station__select__body {
   position: absolute;
   border: #fff .02rem solid;
   border-radius: .2rem;
@@ -18,14 +18,14 @@
   transform: translate(-50%, -50%);
   padding: .1rem .2rem;
 }
-.arrive__select__body img {
+.station__select__body img {
   display: inline-block;
   width: .65rem;
   height: .65rem;
   margin-top: -0.1rem;
   vertical-align: middle;
 }
-.arrive__select__body__text {
+.station__select__body__text {
   display: inline-block;
   padding-left: .2rem;
 }

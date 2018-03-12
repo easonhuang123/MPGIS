@@ -15,10 +15,10 @@ class StationSelect extends Component {
 
     render () {
         return (
-            <div className='arrive__select'>
-                <div className='arrive__select__body' onClick={() => this.showlist()}>
+            <div className='station__select'>
+                <div className='station__select__body' onClick={() => this.showlist()}>
                     <img src={location2}/>
-                    <div className='arrive__select__body__text'>
+                    <div className='station__select__body__text'>
                         {this.props.station || '深大站'}
                     </div>
                 </div>

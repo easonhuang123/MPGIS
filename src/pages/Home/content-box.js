@@ -43,7 +43,7 @@ class ContentBox extends Component{
                         <p className='home__content__title'>到站信息</p>
                     </div>
                     <div className='home__content__box'>
-                        <Link to='/map'>
+                        <Link to='/beginend'>
                             <div className="home__content__img home__content__begin">
                                 <img src={beginEndUrl}/>
                             </div>
@@ -51,7 +51,7 @@ class ContentBox extends Component{
                         <p className='home__content__title'>首末班车</p>
                     </div>
                     <div className='home__content__box'>
-                        <Link to='/map'>
+                        <Link to='/around'>
                             <div className="home__content__img home__content__around">
                                 <img src={aroundUrl}/>
                             </div>

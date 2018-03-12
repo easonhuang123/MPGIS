@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import './style.less'
-import Transition from 'react-transition-group/Transition'
 
 class StationList extends Component{
     constructor (props) {
@@ -13,7 +12,7 @@ class StationList extends Component{
         this.choosenode = this.choosenode.bind(this)
         this.chooseline = this.chooseline.bind(this)
     }
-
+ 
     chooseline (i, e) {
         this.setState((preState, props) => {
             return ({
