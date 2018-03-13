@@ -1,0 +1,36 @@
+@import url('../../styles/color.less');
+
+.be__list{
+    position: fixed;
+    top: 1rem;
+    width: 100%;
+    bottom: 0;
+    overflow: scroll;
+    background-color: @grey1;
+}
+.be__item{
+    margin: .24rem 0 ;
+    padding: .24rem;
+    background-color: #fff;
+    &__header{
+        color: @blue;
+        font-size: .36rem;
+        font-weight: 600;
+        padding-bottom: .24rem;
+    }
+    &__body{
+        font-size: .32rem;
+        &_1{
+            display: inline-block;
+            background-color: @green;
+            padding: .1rem;
+            color: #fff;
+            border-radius: .1rem;
+            margin: 0 .2rem .2rem 0;
+        }
+        &_2{
+            display: inline-block;
+
+        }
+    }
+}

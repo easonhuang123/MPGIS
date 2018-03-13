@@ -1,0 +1,33 @@
+.be__list {
+  position: fixed;
+  top: 1rem;
+  width: 100%;
+  bottom: 0;
+  overflow: scroll;
+  background-color: #f5f5f5;
+}
+.be__item {
+  margin: .24rem 0 ;
+  padding: .24rem;
+  background-color: #fff;
+}
+.be__item__header {
+  color: #1890ff;
+  font-size: .36rem;
+  font-weight: 600;
+  padding-bottom: .24rem;
+}
+.be__item__body {
+  font-size: .32rem;
+}
+.be__item__body_1 {
+  display: inline-block;
+  background-color: #52c41a;
+  padding: .1rem;
+  color: #fff;
+  border-radius: .1rem;
+  margin: 0 .2rem .2rem 0;
+}
+.be__item__body_2 {
+  display: inline-block;
+}
