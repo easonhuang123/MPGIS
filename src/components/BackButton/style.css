@@ -6,6 +6,7 @@
   height: .8rem;
   border-radius: .8rem;
   background-color: rgba(27, 27, 27, 0.7);
+  z-index: 999;
 }
 .back img {
   display: block;

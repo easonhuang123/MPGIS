@@ -24,6 +24,7 @@
     </noscript>
     <div id="root"></div>
     <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.4&key=9a0e79f91c35400475e7de15f5359aa2"></script>
+    <script src="http://webapi.amap.com/subway?v=1.0&amp;key=9a0e79f91c35400475e7de15f5359aa2&amp;callback=cbk"></script>
     <script>
       (function () {
         var dpr = window.devicePixelRatio;
@@ -47,6 +48,11 @@
 
         document.documentElement.style.fontSize = fontSize + 'px';
       })();
+    </script>
+    <script>
+      window.cbk = function(){
+        window.subway = subway
+      }
     </script>
     <script src="/dist/7b2e1500f19dbc367185788cba07366d.js"></script>
     <!--

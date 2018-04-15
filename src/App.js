@@ -11,6 +11,7 @@ import Path from './pages/Path'
 import Arrive from './pages/Arrive'
 import BeginEnd from './pages/BeginEnd'
 import Around from './pages/Around'
+import Current from './pages/Current'
 // import Info from './pages/Info'
 
 const BasicExample = () => (
@@ -18,6 +19,7 @@ const BasicExample = () => (
 		<div>
 			<Switch>
 				<Route exact path="/" component={Home}/>
+				<Route path="/current" component={Current}/>
 				<Route path="/map" component={Mapp}/>
 				<Route path="/path" component={Path}/>
 				<Route path="/arrive" component={Arrive}/>

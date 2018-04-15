@@ -21,6 +21,24 @@ class Around extends Component {
         this.choosenode = this.choosenode.bind(this)
     }
 
+    componentDidMount () {
+        var map = new AMap.Map("mapContainer");
+        AMap.service(["AMap.PlaceSearch"], function() {
+            var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
+                pageSize: 10,
+                type:'酒店', // 酒店 餐饮服务
+                pageIndex: 1,
+                // city: "011", //城市
+                map: map
+            });
+            //中心点坐标
+            var cpoint = [113.86679, 22.57009];
+            placeSearch.searchNearBy('', cpoint, 1000, function(status, result) {
+                console.log(result)
+            });
+        });
+    }
+
     showlist (key) {
         this.setState({
             show: true

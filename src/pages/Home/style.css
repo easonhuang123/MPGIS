@@ -27,6 +27,9 @@
   background-color: #3ECB87;
 }
 .home__location {
+  color: #000 !important;
+  cursor: pointer;
+  text-decoration: none !important;
   padding: .18rem 0 .24rem;
   font-size: .28rem;
   text-align: center;
