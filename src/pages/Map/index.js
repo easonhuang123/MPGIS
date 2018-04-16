@@ -21,7 +21,6 @@ class Mapp extends Component {
             <div className='map__container'>
                 <BackButton/>
                 <div id="mysubway"></div>
-                {/* <img src={bigMap}/> */}
             </div>
         )
     }

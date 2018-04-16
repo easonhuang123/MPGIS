@@ -1,5 +1,6 @@
 .headerbar {
   position: fixed;
+  top: 0;
   height: 1rem;
   width: 100%;
   background-color: #fff;

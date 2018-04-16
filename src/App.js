@@ -10,6 +10,8 @@ import Mapp from './pages/Map'
 import Path from './pages/Path'
 import Arrive from './pages/Arrive'
 import BeginEnd from './pages/BeginEnd'
+import BeginEndList from './pages/BeginEnd/list'
+import End from './pages/BeginEnd/end'
 import Around from './pages/Around'
 import Current from './pages/Current'
 // import Info from './pages/Info'
@@ -24,6 +26,8 @@ const BasicExample = () => (
 				<Route path="/path" component={Path}/>
 				<Route path="/arrive" component={Arrive}/>
 				<Route exact path="/beginend" component={BeginEnd}/>
+				<Route exact path="/beginendlist" component={BeginEndList}/>
+				<Route exact path="/end" component={End}/>
 				<Route exact path="/around" component={Around}/>
 				{/* <Route exact path="/info" component={Info}/> */}
 			</Switch>
