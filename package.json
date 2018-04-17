@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-eslint": "^8.2.2",
     "classnames": "^2.2.5",
     "eslint": "^4.18.2",

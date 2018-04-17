@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './style.less'
 import BackButton from '../../components/BackButton'
+import http from '../../api/http'
 
 class Mapp extends Component {
     componentDidMount () {
@@ -14,6 +15,10 @@ class Mapp extends Component {
             title: '你的位置',
             map: map
         });
+        http.post('http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=113.86679,22.57009&poitype=地铁站&radius=1000&extensions=all&batch=false&roadlevel=0')
+        .then(data => {
+            console.log(data)
+        })
     }
 
     render () {
