@@ -85,21 +85,21 @@ a {
   text-align: center;
   vertical-align: middle;
 }
-.path__select {
+.end__select {
   position: fixed;
   top: 0;
   width: 100%;
   height: 2rem;
   background-color: #fff;
 }
-.path__select__back {
+.end__select__back {
   position: fixed;
   left: .2rem;
   top: .3rem;
   width: .4rem;
   height: .4rem;
 }
-.path__select__body {
+.end__select__body {
   font-size: .28rem;
   position: fixed;
   left: .8rem;
@@ -109,11 +109,11 @@ a {
   height: 1.6rem;
   border-radius: .2rem;
 }
-.path__select__body__begin {
+.end__select__body__begin {
   height: .8rem;
   line-height: .8rem;
 }
-.path__select__body__begin__icon {
+.end__select__body__begin__icon {
   display: inline-block;
   width: .2rem;
   height: .2rem;
@@ -121,7 +121,7 @@ a {
   background-color: #52c41a;
   margin: 0 .2rem 0 .3rem;
 }
-.path__select__body__begin__text {
+.end__select__body__begin__text {
   display: inline-block;
   height: 100%;
   width: 75%;
@@ -129,11 +129,11 @@ a {
   padding-left: .3rem;
   border-bottom: 0.02rem solid #d6d5d5;
 }
-.path__select__body__end {
+.end__select__body__end {
   height: .8rem;
   line-height: .8rem;
 }
-.path__select__body__end__icon {
+.end__select__body__end__icon {
   display: inline-block;
   width: .2rem;
   height: .2rem;
@@ -141,21 +141,21 @@ a {
   background-color: #f5222d;
   margin: 0 .2rem 0 .3rem;
 }
-.path__select__body__end__text {
+.end__select__body__end__text {
   display: inline-block;
   height: 100%;
   width: 75%;
   line-height: .8rem;
   padding-left: .3rem;
 }
-.path__select__body__img {
+.end__select__body__img {
   position: fixed;
   right: 5%;
   top: .75rem;
   width: .5rem;
   height: .5rem;
 }
-.path__recommand {
+.end__recommand {
   position: fixed;
   top: 3.48rem;
   bottom: 0;
@@ -163,30 +163,30 @@ a {
   background-color: #fff;
   overflow: scroll;
 }
-.path__recommand__item {
+.end__recommand__item {
   font-size: .28rem;
   margin: 0 .24rem;
   padding: .2rem;
   border-bottom: #d6d5d5 solid 0.02rem;
 }
-.path__recommand__item .line {
+.end__recommand__item .line {
   margin: .1rem 0;
 }
-.path__recommand__item .item {
+.end__recommand__item .item {
   display: inline-block;
   margin-right: .24rem;
 }
-.path__recommand__item__line1 .tab {
+.end__recommand__item__line1 .tab {
   padding: .06rem .1rem;
   background-color: #3ECB87;
   font-size: .24rem;
   color: #fff;
 }
-.path__recommand__item__line2 .item {
+.end__recommand__item__line2 .item {
   font-size: .35rem;
   font-weight: 900;
 }
-.path__recommand__item__line3 .subway {
+.end__recommand__item__line3 .subway {
   padding: .06rem .16rem;
   background-color: #1890ff;
   font-size: .24rem;

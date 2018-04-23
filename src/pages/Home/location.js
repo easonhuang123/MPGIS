@@ -6,7 +6,10 @@ import {
 import './style.less'
 import locationUrl from '../../assets/location.png'
 import TitleBar from '../../components/TitleBar'
+import { inject, observer } from 'mobx-react'
 
+@inject('mapStore')
+@observer
 class Location extends Component {
     render () {
         return (
@@ -15,7 +18,7 @@ class Location extends Component {
                 <Link to='/current'>
                 <div className='home__location'>
                     离您最近的地铁站是<img className='home__location__img' src={locationUrl}/>
-                    <span className='home__location__des'>高新园</span>
+                    <span className='home__location__des'>{this.props.mapStore.curr}</span>
                 </div>
                 </Link>
             </div>

@@ -4,7 +4,11 @@ import HeaderBar from '../../components/HeaderBar'
 import StationList from '../../components/StationList'
 import StationSelector from '../../components/StationSelector'
 import Card from '../../components/Card'
+import { inject, observer } from 'mobx-react'
+import http from '../../api/http'
 
+@inject('mapStore')
+@observer
 class Around extends Component {
     constructor(props) {
         super(props)
@@ -22,21 +26,14 @@ class Around extends Component {
     }
 
     componentDidMount () {
-        var map = new AMap.Map("mapContainer");
-        AMap.service(["AMap.PlaceSearch"], function() {
-            var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
-                pageSize: 10,
-                type:'酒店', // 酒店 餐饮服务
-                pageIndex: 1,
-                // city: "011", //城市
-                map: map
-            });
-            //中心点坐标
-            var cpoint = [113.86679, 22.57009];
-            placeSearch.searchNearBy('', cpoint, 1000, function(status, result) {
-                console.log(result)
-            });
-        });
+        http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${this.props.mapStore.lng},${this.props.mapStore.lat}&poitype=餐饮相关&radius=1000&extensions=all&batch=false&roadlevel=0`)
+        .then(data => {
+            console.log(data)
+        })
+        http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${this.props.mapStore.lng},${this.props.mapStore.lat}&poitype=宾馆酒店&radius=1000&extensions=all&batch=false&roadlevel=0`)
+        .then(data => {
+            console.log(data)
+        })
     }
 
     showlist (key) {
