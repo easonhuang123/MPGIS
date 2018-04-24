@@ -19,21 +19,19 @@ class Around extends Component {
                 ['益田站', '石厦站', '购物公园站', '福田站', '少年宫站', '莲花村站', '华新站', '通新岭站', '红岭站', '老街站', '晒布站', '翠竹站', '田贝站', '水贝站', '草埔站', '布吉站', '木棉湾站', '大芬站', '丹竹头站', '六约站', '塘坑站', '横岗站', '永湖站', '荷坳站', '大运站', '爱联站', '吉祥站', '龙城广场站', '南联站', '双龙站']
             ],
             show: false,
-            node: ''
+            node: '',
+            food: [],
+            hotel: [],
+            shopping: []
         }
         this.showlist = this.showlist.bind(this)
         this.choosenode = this.choosenode.bind(this)
+        this.renderList = this.renderList.bind(this)
+        this.getAddress = this.getAddress.bind(this)
     }
 
     componentDidMount () {
-        http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${this.props.mapStore.lng},${this.props.mapStore.lat}&poitype=餐饮相关&radius=1000&extensions=all&batch=false&roadlevel=0`)
-        .then(data => {
-            console.log(data)
-        })
-        http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${this.props.mapStore.lng},${this.props.mapStore.lat}&poitype=宾馆酒店&radius=1000&extensions=all&batch=false&roadlevel=0`)
-        .then(data => {
-            console.log(data)
-        })
+        this.getAddress('深大站')
     }
 
     showlist (key) {
@@ -47,30 +45,76 @@ class Around extends Component {
             show: false,
             node
         })
+        this.getAddress(node)
+    }
+
+    getAddress (node) {
+        http.post(`http://restapi.amap.com/v3/geocode/geo?key=7f794c73a70f7476572d350b7653562a&address=${node}&city=深圳`)
+        .then(data => {
+            this.renderList(data.data.geocodes[0].location)
+        })
+    }
+
+    renderList (location) {
+        console.log(location)
+        let lng = location.split(',')[0]
+        let lat = location.split(',')[1]
+        http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${lng},${lat}&poitype=综合酒楼&radius=1500&extensions=all&batch=false&roadlevel=0`)
+        .then(data => {
+            console.log(data)
+            this.setState({
+                food: data.data.regeocode.pois
+            })
+        })
+        http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${lng},${lat}&poitype=宾馆酒店&radius=1500&extensions=all&batch=false&roadlevel=0`)
+        .then(data => {
+            this.setState({
+                hotel: data.data.regeocode.pois
+            })
+        })
+        http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${lng},${lat}&poitype=购物中心&radius=1500&extensions=all&batch=false&roadlevel=0`)
+        .then(data => {
+            this.setState({
+                shopping: data.data.regeocode.pois
+            })
+        })
     }
 
     render () {
+        const FoodList = this.state.food.map((item, index) => {
+            if (index <= 5) {
+                return (
+                    <p key={index} className="around__item">{item.name}</p> 
+                )
+            }
+        })
+        const HotelList = this.state.hotel.map((item, index) => {
+            if (index <= 5) {
+                return (
+                    <p key={index} className="around__item">{item.name}</p> 
+                )
+            }
+        })
+        const ShoppingList = this.state.shopping.map((item, index) => {
+            if (index <= 5) {
+                return (
+                    <p key={index} className="around__item">{item.name}</p> 
+                )
+            }
+        })
         return (
             <div className='around'>
                 <HeaderBar title='地铁口周边信息查询'/>
                 <StationSelector station={this.state.node} showlist={this.showlist}/>
                 <div className='around__list'>
                     <Card title='美食' type='food'>
-                    可颂坊（A1）、木屋烧烤（A1）、面鼎香（C）、外婆谣（C）
+                    {FoodList}
                     </Card>
                     <Card title='酒店' type='hotel'>
-                    城市便捷酒店（A1）、枫叶品园酒店（C）
+                    {HotelList}
                     </Card>
-                    <Card title='出入口信息' type='list'>
-                    A1：思创科技大厦、地铁金融科技大厦
-                    <br/>
-                    A2：深大北门1（公交站）
-                    <br/>
-                    A3：汇景豪苑、海欣阁、海怡阁
-                    <br/>
-                    A4：华润万家、深南花园
-                    <br/>
-                    C：中国储能大厦、高科机楼、深大地铁站（公交站）
+                    <Card title='商城' type='list'>
+                    {ShoppingList}
                     </Card>
                 </div>
                 {!!this.state.show &&
