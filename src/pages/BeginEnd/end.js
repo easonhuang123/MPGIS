@@ -17,7 +17,8 @@ class End extends Component {
             begin: '',
             end: '',
             hash: '',
-            time: ''
+            time: '',
+            lines: []
         }
         this.change = this.change.bind(this)
         this.showlist = this.showlist.bind(this)
@@ -25,7 +26,9 @@ class End extends Component {
     }
 
     change (e) {
-        console.log(e.target.value)
+        this.setState({
+            time: e.target.value
+        })
     }
 
     showlist (key) {
@@ -63,7 +66,7 @@ class End extends Component {
                     <div className='path__date__title'>选择时间</div>
                     <input type="time" onChange={(e) => this.change(e)}/>
                 </div>
-                <Recommand />
+                <Recommand lines={this.state.lines}/>
 
                 {!!this.state.show &&
                     <StationList nodelist={this.state.nodelist}
