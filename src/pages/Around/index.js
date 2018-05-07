@@ -119,7 +119,7 @@ class Around extends Component {
                 </div>
                 {!!this.state.show &&
                     <StationList nodelist={this.state.nodelist}
-                                choosenode={this.choosenode}/>
+                                 choosenode={this.choosenode}/>
                 }
             </div>
         )

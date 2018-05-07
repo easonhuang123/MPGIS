@@ -4,6 +4,7 @@ import HeaderBar from '../../components/HeaderBar'
 import StationList from '../../components/StationList'
 import StationSelector from '../../components/StationSelector'
 import Card from '../../components/Card'
+import http from '../../api/http'
 
 class Arrive extends Component {
     constructor(props) {
@@ -15,7 +16,8 @@ class Arrive extends Component {
                 ['益田站', '石厦站', '购物公园站', '福田站', '少年宫站', '莲花村站', '华新站', '通新岭站', '红岭站', '老街站', '晒布站', '翠竹站', '田贝站', '水贝站', '草埔站', '布吉站', '木棉湾站', '大芬站', '丹竹头站', '六约站', '塘坑站', '横岗站', '永湖站', '荷坳站', '大运站', '爱联站', '吉祥站', '龙城广场站', '南联站', '双龙站']
             ],
             show: false,
-            node: ''
+            node: '',
+            next: [{LineNo:"1",Name:"世界之窗站",No:"116",StationType:1,UpStream:{Terminal:"机场东",ArrivedTimes:["19:51:46","19:54:21","19:56:56"]},DownStream:{Terminal:"罗湖",ArrivedTimes:["19:51:31","19:54:06","19:56:41"]}},{LineNo:"2",Name:"世界之窗站",No:"212",StationType:1,UpStream:{Terminal:"赤湾",ArrivedTimes:["19:55:09","20:08:54","20:15:54"]},DownStream:{Terminal:"新秀",ArrivedTimes:["19:51:09","19:52:08","19:56:08"]}}]
         }
         this.showlist = this.showlist.bind(this)
         this.choosenode = this.choosenode.bind(this)
@@ -34,22 +36,49 @@ class Arrive extends Component {
         })
     }
 
+    componentDidMount () {
+        // http.get(`http://172.29.42.39/Station/Home/GetNextStation?stationName=${encodeURI(this.state.node)}`)
+        // .then(data => {
+        //     this.setState({
+        //         next: data.Data
+        //     })
+        // })
+    }
+
     render () {
+        console.log(this.state.next)
+        let num = ['一', '两', '三']
         return (
             <div className='arrive'>
                 <HeaderBar title='到站时间查询'/>
                 <StationSelector station={this.state.node} showlist={this.showlist}/>
                 <div className='arrive__list'>
-                    <Card title='开往机场东方向列车' type='right'>
-                        下一班列车到达时间：5min
-                        <br/>
-                        下下一班列车到达时间：12min
-                    </Card>
-                    <Card title='开往罗湖方向列车' type='left'>
-                        下一班列车到达时间：1min
-                        <br/>
-                        下下一班列车到达时间：7min
-                    </Card>
+                    {
+                        this.state.next.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    <Card title={`开往${item.DownStream.Terminal}方向列车`} type='right'>
+                                        {
+                                            item.DownStream.ArrivedTimes.map((time, index) => {
+                                                return (
+                                                    <div>{`下${num[index]}班列车到达时间: ${time}`}</div>
+                                                )
+                                            })
+                                        }
+                                    </Card>
+                                    <Card title={`开往${item.UpStream.Terminal}方向列车`} type='left'>
+                                        {
+                                            item.UpStream.ArrivedTimes.map((time, index) => {
+                                                return (
+                                                    <div>{`下${num[index]}班列车到达时间: ${time}`}</div>
+                                                )
+                                            })
+                                        }
+                                    </Card>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
                 {!!this.state.show &&
                     <StationList nodelist={this.state.nodelist}

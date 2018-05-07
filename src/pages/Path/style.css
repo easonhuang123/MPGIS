@@ -95,7 +95,7 @@
 }
 .path__recommand__item .item {
   display: inline-block;
-  margin-right: .24rem;
+  margin-right: .12rem;
 }
 .path__recommand__item__line1 .tab {
   padding: .06rem .1rem;
@@ -104,7 +104,7 @@
   color: #fff;
 }
 .path__recommand__item__line2 .item {
-  font-size: .35rem;
+  font-size: .3rem;
   font-weight: 900;
 }
 .path__recommand__item__line3 .subway {

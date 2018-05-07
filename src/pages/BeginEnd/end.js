@@ -16,10 +16,16 @@ class End extends Component {
             show: false,
             begin: '',
             end: '',
-            hash: ''
+            hash: '',
+            time: ''
         }
+        this.change = this.change.bind(this)
         this.showlist = this.showlist.bind(this)
         this.choosenode = this.choosenode.bind(this)
+    }
+
+    change (e) {
+        console.log(e.target.value)
     }
 
     showlist (key) {
@@ -55,7 +61,7 @@ class End extends Component {
                 <StationSelect showlist={this.showlist} begin={this.state.begin} end={this.state.end}/>
                 <div className='path__date'>
                     <div className='path__date__title'>选择时间</div>
-                    <input type="date"/>
+                    <input type="time" onChange={(e) => this.change(e)}/>
                 </div>
                 <Recommand />
 
