@@ -18,7 +18,8 @@ class Path extends Component {
             begin: '',
             end: '',
             hash: '',
-            lines: [{LinePoint:"深大站-桃园站-大新站-鲤鱼门站-前海湾站-新安站-宝安中心站-宝体站-坪洲站-西乡站-固戍站-后瑞站-机场东站",TransferLine:"1",LastSendTime:"23:36:09"},{LinePoint:"深大站-桃园站-大新站-鲤鱼门站-前海湾站-前海湾站-临海站-宝华站-宝安中心站-宝安中心站-宝体站-坪洲站-西乡站-固戍站-后瑞站-机场东站",TransferLine:"1-5-1",LastSendTime:"22:45:09"}]
+            // lines: [{LinePoint:"深大站-桃园站-大新站-鲤鱼门站-前海湾站-新安站-宝安中心站-宝体站-坪洲站-西乡站-固戍站-后瑞站-机场东站",TransferLine:"1",LastSendTime:"23:36:09"},{LinePoint:"深大站-桃园站-大新站-鲤鱼门站-前海湾站-前海湾站-临海站-宝华站-宝安中心站-宝安中心站-宝体站-坪洲站-西乡站-固戍站-后瑞站-机场东站",TransferLine:"1-5-1",LastSendTime:"22:45:09"}]
+            lines: []
         }
         this.showlist = this.showlist.bind(this)
         this.choosenode = this.choosenode.bind(this)
@@ -45,11 +46,14 @@ class Path extends Component {
                 })
             }
             if (this.state.begin && this.state.end) {
-                http.get(`http://172.29.42.39/Station/Home/GetSearchResult?startNo=${encodeURI(this.state.begin)}&endNo=${encodeURI(this.state.end)}`)
+                http.post(`http://172.29.42.39/Station/Home/GetSearchResult?startNo=${encodeURI(this.state.begin)}&endNo=${encodeURI(this.state.end)}`)
                 .then(data => {
                     this.setState({
-                        lines: data.Data.Lines
+                        lines: data.data.Data.Lines
                     })
+                })
+                .catch(err => {
+                    console.log(err)
                 })
             }
         } else {
@@ -60,7 +64,6 @@ class Path extends Component {
     }
 
     render () {
-        console.log(this.state.lines)
         return (
             <div className='path'>
                 <StationSelect showlist={this.showlist} begin={this.state.begin} end={this.state.end}/>

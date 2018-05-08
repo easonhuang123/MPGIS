@@ -17,7 +17,8 @@ class Arrive extends Component {
             ],
             show: false,
             node: '',
-            next: [{LineNo:"1",Name:"世界之窗站",No:"116",StationType:1,UpStream:{Terminal:"机场东",ArrivedTimes:["19:51:46","19:54:21","19:56:56"]},DownStream:{Terminal:"罗湖",ArrivedTimes:["19:51:31","19:54:06","19:56:41"]}},{LineNo:"2",Name:"世界之窗站",No:"212",StationType:1,UpStream:{Terminal:"赤湾",ArrivedTimes:["19:55:09","20:08:54","20:15:54"]},DownStream:{Terminal:"新秀",ArrivedTimes:["19:51:09","19:52:08","19:56:08"]}}]
+            next: []
+            // next: [{LineNo:"1",Name:"世界之窗站",No:"116",StationType:1,UpStream:{Terminal:"机场东",ArrivedTimes:["19:51:46","19:54:21","19:56:56"]},DownStream:{Terminal:"罗湖",ArrivedTimes:["19:51:31","19:54:06","19:56:41"]}},{LineNo:"2",Name:"世界之窗站",No:"212",StationType:1,UpStream:{Terminal:"赤湾",ArrivedTimes:["19:55:09","20:08:54","20:15:54"]},DownStream:{Terminal:"新秀",ArrivedTimes:["19:51:09","19:52:08","19:56:08"]}}]
         }
         this.showlist = this.showlist.bind(this)
         this.choosenode = this.choosenode.bind(this)
@@ -37,16 +38,18 @@ class Arrive extends Component {
     }
 
     componentDidMount () {
-        // http.get(`http://172.29.42.39/Station/Home/GetNextStation?stationName=${encodeURI(this.state.node)}`)
-        // .then(data => {
-        //     this.setState({
-        //         next: data.Data
-        //     })
-        // })
+        http.post(`http://172.29.42.39/Station/Home/GetNextStation?stationName=${encodeURI('深大站')}`)
+        .then(data => {
+            this.setState({
+                next: data.data.Data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render () {
-        console.log(this.state.next)
         let num = ['一', '两', '三']
         return (
             <div className='arrive'>
@@ -61,7 +64,7 @@ class Arrive extends Component {
                                         {
                                             item.DownStream.ArrivedTimes.map((time, index) => {
                                                 return (
-                                                    <div>{`下${num[index]}班列车到达时间: ${time}`}</div>
+                                                    <div key={time}>{`下${num[index]}班列车到达时间: ${time}`}</div>
                                                 )
                                             })
                                         }
@@ -70,7 +73,7 @@ class Arrive extends Component {
                                         {
                                             item.UpStream.ArrivedTimes.map((time, index) => {
                                                 return (
-                                                    <div>{`下${num[index]}班列车到达时间: ${time}`}</div>
+                                                    <div key={time}>{`下${num[index]}班列车到达时间: ${time}`}</div>
                                                 )
                                             })
                                         }
