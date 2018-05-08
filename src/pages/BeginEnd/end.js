@@ -18,7 +18,7 @@ class End extends Component {
             end: '',
             hash: '',
             time: '',
-            lines: []
+            lastTimeObj: {}
         }
         this.change = this.change.bind(this)
         this.showlist = this.showlist.bind(this)
@@ -26,9 +26,24 @@ class End extends Component {
     }
 
     change (e) {
+        let time = e.target.value + ':00'
         this.setState({
             time: e.target.value
         })
+        if (this.state.begin && this.state.end && time) {
+            http.post(`http://172.29.42.39/Station/Home/GetLastTrainTime?startName=${encodeURI(this.state.begin)}&endName=${encodeURI(this.state.end)}&time=${encodeURI(time)}`)
+            .then(data => {
+                this.setState({
+                    lastTimeObj: {
+                        line: data.data.Data.Item1,
+                        time: data.data.Data.Item2
+                    }
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
     }
 
     showlist (key) {
@@ -40,17 +55,38 @@ class End extends Component {
 
     choosenode (node) {
         if (node) {
-           if (this.state.hash === 'begin') {
+            let b = ''
+            let e = ''
+            if (this.state.hash === 'begin') {
+                b = node
+                e = this.state.end
                 this.setState({
                     begin: node,
                     show: false
                 })
             } else {
+                b = this.state.begin
+                e = node
                 this.setState({
                     end: node,
                     show: false
                 })
-            } 
+            }
+            if (b && e && this.state.time) {
+                console.log(b, e)
+                http.post(`http://172.29.42.39/Station/Home/GetLastTrainTime?startName=${encodeURI(b)}&endName=${encodeURI(e)}&time=${encodeURI(this.state.time)}`)
+                .then(data => {
+                    this.setState({
+                        lastTimeObj: {
+                            line: data.data.Data.Item1,
+                            time: data.data.Data.Item2
+                        }
+                    })
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            }
         } else {
             this.setState({
                 show: false
@@ -66,7 +102,7 @@ class End extends Component {
                     <div className='path__date__title'>选择时间</div>
                     <input type="time" onChange={(e) => this.change(e)}/>
                 </div>
-                <Recommand lines={this.state.lines}/>
+                <Recommand obj={this.state.lastTimeObj}/>
 
                 {!!this.state.show &&
                     <StationList nodelist={this.state.nodelist}

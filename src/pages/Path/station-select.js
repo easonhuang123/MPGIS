@@ -12,7 +12,6 @@ class StationSelect extends Component {
     }
 
     gotoBack () {
-        console.log(this)
         this.props.history.goBack()
     }
     showlist (key) {

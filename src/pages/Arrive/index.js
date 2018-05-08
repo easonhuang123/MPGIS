@@ -35,6 +35,15 @@ class Arrive extends Component {
             show: false,
             node
         })
+        http.post(`http://172.29.42.39/Station/Home/GetNextStation?stationName=${encodeURI(node)}`)
+        .then(data => {
+            this.setState({
+                next: data.data.Data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     componentDidMount () {

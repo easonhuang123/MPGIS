@@ -34,19 +34,26 @@ class Path extends Component {
 
     choosenode (node) {
         if (node) {
-           if (this.state.hash === 'begin') {
+            let b = ''
+            let e = ''
+            if (this.state.hash === 'begin') {
+                b = node
+                e = this.state.end
                 this.setState({
                     begin: node,
                     show: false
                 })
             } else {
+                b = this.state.begin
+                e = node
                 this.setState({
                     end: node,
                     show: false
                 })
             }
-            if (this.state.begin && this.state.end) {
-                http.post(`http://172.29.42.39/Station/Home/GetSearchResult?startNo=${encodeURI(this.state.begin)}&endNo=${encodeURI(this.state.end)}`)
+            if (b && e) {
+                console.log(b, e)
+                http.post(`http://172.29.42.39/Station/Home/GetSearchResult?startNo=${encodeURI(b)}&endNo=${encodeURI(e)}`)
                 .then(data => {
                     this.setState({
                         lines: data.data.Data.Lines
