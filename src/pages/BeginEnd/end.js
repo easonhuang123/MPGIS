@@ -3,6 +3,8 @@ import './style.less'
 import StationList from '../../components/StationList'
 import StationSelect from './station-select'
 import Recommand from './recommand'
+import http from '../../api/http'
+
 
 class End extends Component {
     constructor(props) {

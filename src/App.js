@@ -14,7 +14,7 @@ import BeginEndList from './pages/BeginEnd/list'
 import End from './pages/BeginEnd/end'
 import Around from './pages/Around'
 import Current from './pages/Current'
-// import Info from './pages/Info'
+import Info from './pages/Info'
 
 const BasicExample = () => (
 	<Router>
@@ -29,7 +29,7 @@ const BasicExample = () => (
 				<Route exact path="/beginendlist" component={BeginEndList}/>
 				<Route exact path="/end" component={End}/>
 				<Route exact path="/around" component={Around}/>
-				{/* <Route exact path="/info" component={Info}/> */}
+				<Route exact path="/info" component={Info}/>
 			</Switch>
 		</div>
 	</Router>

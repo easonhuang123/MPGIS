@@ -4,21 +4,17 @@ import './style.less'
 class Recommand extends Component {
     constructor (props) {
         super(props)
-        this.obj = {
-            time: '11:88:00',
-            line: '1111-3333-222'
-        }
     }
 
     render () {
             return (
-                <div className='path__recommand'>
-                    <div className='path__recommand__item'>
-                        <div className='line path__recommand__item__line1'>
-                            <div className='item tab'>{this.obj.time}</div>
+                <div className='end__recommand'>
+                    <div className='end__recommand__item'>
+                        <div className='line end__recommand__item__line1'>
+                            <div className='item tab'>{this.props.obj.time}</div>
                         </div>
-                        <div className='line path__recommand__item__line2'>
-                            <div className='item time'>{this.obj.line}</div>
+                        <div className='line end__recommand__item__line2'>
+                            <div className='item time'>{this.props.obj.line}</div>
                         </div>
                         {/* <div className='line path__recommand__item__line3'>
                             {

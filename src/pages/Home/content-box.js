@@ -59,7 +59,7 @@ class ContentBox extends Component{
                         <p className='home__content__title'>周边信息</p>
                     </div>
                     <div className='home__content__box'>
-                        <Link to='/map'>
+                        <Link to='/info'>
                             <div className="home__content__img home__content__info">
                                 <img src={infoUrl}/>
                             </div>
