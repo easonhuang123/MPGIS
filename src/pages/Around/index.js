@@ -53,18 +53,22 @@ class Around extends Component {
         .then(data => {
             this.renderList(data.data.geocodes[0].location)
         })
+        .catch(err => {
+            alert(err)
+        })
     }
 
     renderList (location) {
-        console.log(location)
         let lng = location.split(',')[0]
         let lat = location.split(',')[1]
         http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${lng},${lat}&poitype=综合酒楼&radius=1500&extensions=all&batch=false&roadlevel=0`)
         .then(data => {
-            console.log(data)
             this.setState({
                 food: data.data.regeocode.pois
             })
+        })
+        .catch(err => {
+            alert(err)
         })
         http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${lng},${lat}&poitype=宾馆酒店&radius=1500&extensions=all&batch=false&roadlevel=0`)
         .then(data => {
@@ -72,11 +76,17 @@ class Around extends Component {
                 hotel: data.data.regeocode.pois
             })
         })
+        .catch(err => {
+            alert(err)
+        })
         http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${lng},${lat}&poitype=购物中心&radius=1500&extensions=all&batch=false&roadlevel=0`)
         .then(data => {
             this.setState({
                 shopping: data.data.regeocode.pois
             })
+        })
+        .catch(err => {
+            alert(err)
         })
     }
 

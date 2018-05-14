@@ -43,7 +43,7 @@ class End extends Component {
                 })
             })
             .catch(err => {
-                console.log(err)
+                alert(err)
             })
         }
     }
@@ -75,7 +75,6 @@ class End extends Component {
                 })
             }
             if (b && e && this.state.time) {
-                console.log(b, e)
                 http.post(`http://172.29.42.39/Station/Home/GetLastTrainTime?startName=${encodeURI(b)}&endName=${encodeURI(e)}&time=${encodeURI(this.state.time)}`)
                 .then(data => {
                     this.setState({
@@ -86,7 +85,7 @@ class End extends Component {
                     })
                 })
                 .catch(err => {
-                    console.log(err)
+                    alert(err)
                 })
             }
         } else {

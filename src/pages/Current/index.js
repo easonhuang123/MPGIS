@@ -10,7 +10,6 @@ class Mapp extends Component {
 
     componentDidMount () {
         let {lng, lat} = this.props.mapStore.lngLat
-        console.log(lng, lat)
         var map = new window.AMap.Map('current__container', {
             resizeEnable: true,
             zoom:15,

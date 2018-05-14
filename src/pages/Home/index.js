@@ -30,15 +30,16 @@ class Home extends Component {
         function onComplete(data) {
             http.post(`http://restapi.amap.com/v3/geocode/regeo?key=7f794c73a70f7476572d350b7653562a&location=${data.position.getLng()},${data.position.getLat()}&poitype=地铁站&radius=5000&extensions=all&batch=false&roadlevel=0`)
             .then(data => {
-                console.log(data)
                 self.props.mapStore.setCurr(data.data.regeocode.pois[0].name)
                 self.props.mapStore.setLngLat(data.data.regeocode.pois[0].location.split(',')[0], data.data.regeocode.pois[0].location.split(',')[1])
             })
+            .catch(err => {
+              alert(err)
+          })
         }
 
         //解析定位错误信息
         function onError(data) {
-            console.log(data)
         }
     }
   }

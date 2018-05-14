@@ -52,7 +52,6 @@ class Path extends Component {
                 })
             }
             if (b && e) {
-                console.log(b, e)
                 http.post(`http://172.29.42.39/Station/Home/GetSearchResult?startNo=${encodeURI(b)}&endNo=${encodeURI(e)}`)
                 .then(data => {
                     this.setState({
@@ -60,7 +59,7 @@ class Path extends Component {
                     })
                 })
                 .catch(err => {
-                    console.log(err)
+                    alert(err)
                 })
             }
         } else {
